@@ -8,6 +8,68 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+                <p:card style="margin: 5%">
+            <f:view>
+                <p:dataTable>
+                    <p:columnGroup>
+                        <p:row>
+                            <p:column colspan="2">
+                                <p:commandButton value="Alumnos" actionListener="#{materiaController.guardarMateria}" update="tablaInscripciones inscripcionForm"/>
+                            </p:column>
+                            <p:column colspan="2">
+                                <p:commandButton value="Materias" actionListener="#{materiaController.guardarMateria}" update="tablaInscripciones inscripcionForm"/>
+                            </p:column>
+                            <p:column colspan="2">
+                                <p:commandButton value="Inscripciones" actionListener="#{materiaController.guardarMateria}" update="tablaInscripciones inscripcionForm"/>
+                            </p:column>
+                        </p:row>
+                    </p:columnGroup>
+                </p:dataTable>
+            </f:view>
+        </p:card>
+        <p:card style="margin: 5%">
+            <f:view>
+                <p:dataTable>
+                    <p:columnGroup type="header">
+                        <p:row>
+                            <p:column colspan="2">
+                                <f:facet name="header">Buscar Alumno:</f:facet>
+                            </p:column>
+                            <p:column colspan="2">
+                                <f:facet name="header">Buscar Materia:</f:facet>
+                            </p:column>
+                            <p:column colspan="1">
+                                <p:panelGrid columns="2" layout="grid">
+                                    <f:facet name="header">Año:</f:facet>
+                                    <p:inputText id="anio" value="#{inscripcionController.inscripcion.anio}"/>
+                                </p:panelGrid>
+                            </p:column>
+                            <p:column colspan="1">
+                                <p:panelGrid columns="2" layout="grid">
+                                    <f:facet name="header">Ciclo:</f:facet>
+                                    <p:inputText id="descripcion" value="#{inscripcionController.inscripcion.ciclo}"/>
+                                </p:panelGrid>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column colspan="2">
+                                <f:facet name="header">Buscar Alumno:</f:facet>
+                                <p:autoComplete id="buscarAlumno" dropdown="true" value="#{indexController.alumno.nombre}"
+                                                scrollHeight="250"/>
+                            </p:column>
+                            <p:column colspan="2">
+                                <f:facet name="header">Buscar Materia:</f:facet>
+                                <p:autoComplete id="buscarMateria" dropdown="true" value="#{indexController.materia.nombre}"
+                                                scrollHeight="250"/>
+                            </p:column>
+                            <p:column colspan="2">
+                                <p:commandButton value="Guardar" actionListener="#{materiaController.guardarMateria}" update="tablaInscripciones inscripcionForm"/>
+                            </p:column>
+                        </p:row>
+                    </p:columnGroup>
+                </p:dataTable>
+            </f:view>
+        </p:card>
         <p:card style="margin: 5%">
             <f:facet name="title">Formulario de Alumno</f:facet>
             <f:view>
