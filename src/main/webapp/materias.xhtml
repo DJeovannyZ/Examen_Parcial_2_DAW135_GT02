@@ -8,26 +8,36 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+        <f:facet name="title">Formulario de Materia</f:facet>
         <p:card style="margin: 5%">
-            <f:facet name="title">Formulario de Materia</f:facet>
+            <f:view>
+                <p:panelGrid columns="3" layout="grid"
+                             styleClass="customPanelGrid" contentStyleClass="ui-fluid">
+                    <p:commandButton value="Alumnos" actionListener="#{indexController.guardarAlumno}"/>
+                    <p:commandButton value="Materias" actionListener="#{indexController.guardarAlumno}"/>
+                    <p:commandButton value="Inscripciones" actionListener="#{indexController.guardarAlumno}"/>
+                </p:panelGrid>
+            </f:view>
+        </p:card>
+        <p:card style="margin: -3% 5% 5% 5%">
             <f:view>
                 <h:form id="materiaForm">
                     <h:inputHidden id="id" value="#{materiaController.materia.id}"/>
-                    <p:panelGrid columns="1" layout="grid">
+                    <p:panelGrid columns="3" layout="grid" contentStyleClass="ui-fluid">
                         <p:outputLabel value="Nombre:"/>
-                        <p:inputText id="nombre" value="#{materiaController.materia.nombre}"/>
-                        <p:outputLabel value="Carnet:"/>
+                        <p:outputLabel value="Descripción:"/>
+                        <p:outputLabel value="Código:"/>
+                        <p:inputText id="nombre" value="#{materiaController.materia.nombre}"/>             
                         <p:inputText id="descripcion" value="#{materiaController.materia.descripcion}"/>
-                        <p:outputLabel value="Carnet:"/>
                         <p:inputText id="codigo" value="#{materiaController.materia.codigo}"/>
                     </p:panelGrid>
-                    <p:panelGrid columns="4" layout="grid">
-                        <p:commandButton value="Guardar" actionListener="#{materiaController.guardarMateria}" update="tablaMaterias materiaForm"/>
+                    <p:panelGrid columns="1" layout="grid">
+                        <p:commandButton style="margin-left: 35%; margin-right: 35%; width: 30%" value="Guardar" actionListener="#{materiaController.guardarMateria}" update="tablaMaterias materiaForm"/>
                     </p:panelGrid>
                 </h:form>
             </f:view>
         </p:card>
-        <p:card style="margin: 5%">
+        <p:card style="margin: -3% 5% 5% 5%">
             <h1>Listado de Materias</h1>
             <h:form id="tablaMaterias">
                 <p:dataTable rows="5" paginator="true" paginatorPosition="bottom"
