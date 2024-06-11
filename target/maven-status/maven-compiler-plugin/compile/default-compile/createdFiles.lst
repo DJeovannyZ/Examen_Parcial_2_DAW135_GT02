@@ -1,5 +1,5 @@
-com\mycompany\appweb\resources\Recurso.class
-com\mycompany\appweb\negocio\DataService.class
-com\mycompany\appweb\entidades\Alumno.class
-com\mycompany\appweb\resources\App.class
-com\mycompany\appweb\controladores\indexController.class
+com/mycompany/appweb/entidades/Alumno.class
+com/mycompany/appweb/resources/App.class
+com/mycompany/appweb/resources/Recurso.class
+com/mycompany/appweb/controladores/indexController.class
+com/mycompany/appweb/negocio/DataService.class
