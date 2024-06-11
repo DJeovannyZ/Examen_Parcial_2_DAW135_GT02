@@ -14,7 +14,7 @@
                 <p:panelGrid columns="3" layout="grid"
                              styleClass="customPanelGrid" contentStyleClass="ui-fluid">
                     <p:commandButton value="Alumnos" actionListener="#{indexController.guardarAlumno}"/>
-                    <p:commandButton value="Materias" actionListener="#{indexController.guardarAlumno}"/>
+                    <p:commandButton value="Materias" actionListener="#{Navegacion.paginaNavegar('materias')}"/>
                     <p:commandButton value="Inscripciones" actionListener="#{indexController.guardarAlumno}"/>
                 </p:panelGrid>
             </f:view>
@@ -22,12 +22,12 @@
         <p:card style="margin: -3% 5% 5% 5%">
             <f:view>
                 <h:form id="alumnoForm">
-                    <h:inputHidden id="id" value="#{indexController.alumno.id}"/>
-                    <p:panelGrid columns="2" layout="grid">
+                    <h:inputHidden id="id" value="#{alumnoController.alumno.id}"/>
+                    <p:panelGrid columns="2" layout="grid" contentStyleClass="ui-fluid">
                         <p:outputLabel value="Nombre:"/>
                         <p:outputLabel value="Carnet:"/>
-                        <p:inputText id="nombre" value="#{indexController.alumno.nombre}"/>
-                        <p:inputText id="carnet" value="#{indexController.alumno.carnet}"/>
+                        <p:inputText id="nombre" value="#{alumnoController.alumno.nombre}"/>
+                        <p:inputText id="carnet" value="#{alumnoController.alumno.carnet}"/>
                     </p:panelGrid>
                     <p:panelGrid columns="1" layout="grid">
                         <p:commandButton style="margin-left: 35%; margin-right: 35%; width: 30%" value="Guardar" actionListener="#{indexController.guardarAlumno}" update="tablaAlumnos alumnoForm"/>

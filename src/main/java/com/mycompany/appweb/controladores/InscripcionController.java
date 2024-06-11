@@ -28,7 +28,7 @@ public class InscripcionController {
         return inscripcionesList;
     }
 
-    public void guardarAlumno() {
+    public void guardarInscripcion() {
         if (inscripcion.getId() != null) {
             servicio.editInscripcion(inscripcion);
         } else {
