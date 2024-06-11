@@ -5,7 +5,7 @@
 package com.mycompany.appweb.resources;
 
 import com.mycompany.appweb.entidades.Alumno;
-import com.mycompany.appweb.negocio.DataService;
+import com.mycompany.appweb.negocio.AlumnoService;
 import jakarta.ejb.EJB;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -29,7 +29,7 @@ import java.util.List;
 @Path("/alumnos")
 public class Recurso {
     
-    @EJB DataService servicio;
+    @EJB AlumnoService servicio;
     
     @GET 
     public Response getAlumnos() {

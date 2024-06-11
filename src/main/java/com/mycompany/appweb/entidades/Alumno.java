@@ -5,26 +5,31 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "alumno")
-public class Alumno implements Serializable{
-    
+public class Alumno implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "alumno_id_seq")
     @SequenceGenerator(name = "alumno_id_seq", sequenceName = "alumno_id_seq", allocationSize = 1)
     @Column(name = "id")
     private Integer id;
-    
+
     @Column(name = "nombre")
     private String nombre;
-    
+
     @Column(name = "carnet")
     private String carnet;
+
+    @OneToMany(mappedBy = "alumno")
+    private List<Inscripcion> inscripciones;
 
     public Integer getId() {
         return id;
