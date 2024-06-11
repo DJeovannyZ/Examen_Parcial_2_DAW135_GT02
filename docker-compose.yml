@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  # vetpet_db:
+  #   container_name: vetpet_db
+  #   image: postgres
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: djeovanz
+  #     POSTGRES_PASSWORD: vetpet
+  #     POSTGRES_DB: vetpet
+  #   # volumes:
+  #   #   - /home/djeovanz/containers/vetpet_db:/var/lib/postgresql/data/
+  #   ports:
+  #     - "5432:5432"
+  webapp_parcial:
+    container_name: webapp_parcial
+    image: parcial2:1.0
+    build: .
+    ports:
+      - "4848:4848"
+      - "8080:8080"
+    # depends_on:
+    #   - vetpet_db
+    volumes:
+      - /home/djeovanz/containers/payara:/opt/payara/appserver/glassfish/domains/domain1/lib/
