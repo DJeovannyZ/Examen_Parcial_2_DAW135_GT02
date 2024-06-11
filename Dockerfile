@@ -1,5 +1,5 @@
 FROM payara/server-full
-COPY target/appweb-1.0-SNAPSHOT.war $DEPLOY_DIR
+COPY target/appweb-1.0.war $DEPLOY_DIR
 
 
 COPY postgresql-42.7.3.jar /opt/payara/appserver/glassfish/domains/domain1/lib/

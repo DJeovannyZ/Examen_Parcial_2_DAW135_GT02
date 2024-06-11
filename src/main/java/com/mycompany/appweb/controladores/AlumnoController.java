@@ -1,7 +1,7 @@
 package com.mycompany.appweb.controladores;
 
 import com.mycompany.appweb.entidades.Alumno;
-import com.mycompany.appweb.negocio.DataService;
+import com.mycompany.appweb.negocio.AlumnoService;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
@@ -11,13 +11,13 @@ import java.util.List;
 
 @Named
 @RequestScoped
-public class indexController {
+public class AlumnoController {
     private List<Alumno> alumnosList = new ArrayList<>();
     
     private Alumno alumno = new Alumno();
     
     @EJB 
-    DataService servicio;
+    AlumnoService servicio;
     
     @PostConstruct
     public void cargarAlumnos() {

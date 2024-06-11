@@ -42,7 +42,7 @@
                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                              currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                              rowsPerPageTemplate="5,10,{ShowAll|'All'"
-                             value="#{indexController.alumnosList}" var="alumno">
+                             value="#{alumnoController.alumnosList}" var="alumno">
                     <p:column>
                         <f:facet name="header">ID</f:facet>
                         <span>#{alumno.id}</span>
@@ -57,10 +57,10 @@
                     </p:column>
                     <p:column>
                         <f:facet name="header">Opciones</f:facet>    
-                        <p:commandButton value="Editar" icon="pi pi-pencil" actionListener="#{indexController.llenarFormEditar(alumno)}" update="alumnoForm"/>
+                        <p:commandButton value="Editar" icon="pi pi-pencil" actionListener="#{alumnoController.llenarFormEditar(alumno)}" update="alumnoForm"/>
                         <p:spacer width="10"/>
                         <p:commandButton value="Eliminar" icon="pi pi-trash" style="background-color: red" 
-                                         action="#{indexController.eliminarAlumno(alumno)}" update="tablaAlumnos">
+                                         action="#{alumnoController.eliminarAlumno(alumno)}" update="tablaAlumnos">
                             <p:confirm header="Confirmar" 
                                        message="¿Realmente desea eliminar al alumno #{alumno.nombre}?" icon="pi pi-info-circle"/>
                         </p:commandButton>
