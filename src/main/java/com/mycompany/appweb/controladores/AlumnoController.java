@@ -11,7 +11,7 @@ import java.util.List;
 
 @Named
 @RequestScoped
-public class indexController {
+public class AlumnoController {
     private List<Alumno> alumnosList = new ArrayList<>();
     
     private Alumno alumno = new Alumno();
