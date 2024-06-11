@@ -22,11 +22,11 @@ public class Inscripcion {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "alumno_id", nullable = false)
+    @JoinColumn(name = "alumnoid", nullable = false)
     private Alumno alumno;
 
     @ManyToOne
-    @JoinColumn(name = "materia_id", nullable = false)
+    @JoinColumn(name = "materiaid", nullable = false)
     private Materia materia;
 
     @Column(name = "ciclo")

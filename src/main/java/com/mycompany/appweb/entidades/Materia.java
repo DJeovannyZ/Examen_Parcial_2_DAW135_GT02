@@ -24,7 +24,7 @@ public class Materia {
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "codigoMateria")
+    @Column(name = "codigomateria")
     private String codigoMateria;
 
     @OneToMany(mappedBy = "materia")
