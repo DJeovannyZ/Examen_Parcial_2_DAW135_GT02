@@ -11,6 +11,8 @@ import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,6 +33,11 @@ public class InscripcionController {
     @EJB
     MateriaService materiaService;
 
+    private Alumno alumno1;
+
+    private Materia materia1;
+
+
     @PostConstruct
     public void cargarInscripciones() {
         inscripcionesList = servicio.getInscripciones();
@@ -40,32 +47,26 @@ public class InscripcionController {
         return inscripcionesList;
     }
 
-    public List<String> autoCompletarAlumno(String query) {
+    public List<Alumno> autoCompletarAlumno(String query) {
         String queryLowerCase = query.toLowerCase();
-        List<String> listNombreAlumnos = new ArrayList<>();
         List<Alumno> alumnos = alumnoService.getAlumnos();
-        for (Alumno alumno : alumnos) {
-            listNombreAlumnos.add(alumno.getNombre());
-        }
-        return listNombreAlumnos.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase))
-                .collect(Collectors.toList());
+        return alumnos.stream().filter(t -> t.getNombre().toLowerCase().contains(queryLowerCase)).collect(Collectors.toList());
     }
 
-    public List<String> autoCompletarMateria(String query) {
+    public List<Materia> autoCompletarMateria(String query) {
         String queryLowerCase = query.toLowerCase();
-        List<String> listNombreMaterias = new ArrayList<>();
         List<Materia> materias = materiaService.getMaterias();
-        for (Materia materia : materias) {
-            listNombreMaterias.add(materia.getNombre());
-        }
-        return listNombreMaterias.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase))
-                .collect(Collectors.toList());
+        return materias.stream().filter(t -> t.getNombre().toLowerCase().contains(queryLowerCase)).collect(Collectors.toList());
     }
+
 
     public void guardarInscripcion() {
         if (inscripcion.getId() != null) {
             servicio.editInscripcion(inscripcion);
         } else {
+            inscripcion.setFechaInscripcion(LocalDate.now());
+            inscripcion.setAlumno(alumno1);
+            inscripcion.setMateria(materia1);
             servicio.saveInscripcion(inscripcion);
         }
 
@@ -99,4 +100,44 @@ public class InscripcionController {
     public void setInscripcion(Inscripcion inscripcion) {
         this.inscripcion = inscripcion;
     }
+
+	public AlumnoService getAlumnoService() {
+		return alumnoService;
+	}
+
+	public void setAlumnoService(AlumnoService alumnoService) {
+		this.alumnoService = alumnoService;
+	}
+
+	public InscripcionService getServicio() {
+		return servicio;
+	}
+
+	public void setServicio(InscripcionService servicio) {
+		this.servicio = servicio;
+	}
+
+	public MateriaService getMateriaService() {
+		return materiaService;
+	}
+
+	public void setMateriaService(MateriaService materiaService) {
+		this.materiaService = materiaService;
+	}
+
+	public Alumno getAlumno1() {
+		return alumno1;
+	}
+
+	public void setAlumno1(Alumno alumno1) {
+		this.alumno1 = alumno1;
+	}
+
+	public Materia getMateria1() {
+		return materia1;
+	}
+
+	public void setMateria1(Materia materia1) {
+		this.materia1 = materia1;
+	}
 }

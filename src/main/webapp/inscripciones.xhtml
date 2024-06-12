@@ -20,46 +20,52 @@
         </p:card>
         <p:card style="margin: -3% 5% 5% 5%">
             <f:view>
-                <p:panelGrid columns="6" layout="grid"
-                             contentStyleClass="ui-fluid">
-                    <p:row>
-                        <p:column style="width: 20%; text-align: center">
-                            <p:outputLabel value="Buscar Alumno:"/>
-                        </p:column>
-                        <p:column style="width: 20%; text-align: center">
-                            <p:outputLabel value="Buscar Materia:"/>
-                        </p:column>
-                        <p:column style="text-align: right; width: 15%">
-                            <p:outputLabel value="Año:"/>
-                        </p:column>
-                        <p:column style="width: 15%">
-                            <p:inputText id="anio" value="#{inscripcionController.inscripcion.anio}"/>
-                        </p:column>
-                        <p:column style="text-align: right; width: 5%; margin-left: 5%">
-                            <p:outputLabel value="Ciclo:"/>
-                        </p:column>
-                        <p:column style="width: 15%; margin-right: 5%">
-                            <p:inputText id="ciclo" value="#{inscripcionController.inscripcion.ciclo}"/>
-                        </p:column>
-                    </p:row>
-                </p:panelGrid>
-                <p:panelGrid columns="6" layout="grid"
-                             contentStyleClass="ui-fluid">
-                    <p:row>
-                        <p:column style="width: 20%; margin-top: -30px">
-                            <p:autoComplete id="ddA" dropdown="true" value=""
-                            completeMethod="#{inscripcionController.autoCompletarAlumno}" scrollHeight="250"/>
-                        </p:column>
-                        <p:column style="width: 20%; margin-top: -30px">
-
-                            <p:autoComplete id="ddM" dropdown="true" value=""
-                            completeMethod="#{inscripcionController.autoCompletarMateria}" scrollHeight="250"/>
-                        </p:column>
-                        <p:column style="text-align: right; width: 30%; margin-left: 20%; margin-right: 10%">
-                            <p:commandButton value="Guardar" actionListener="#{inscripcionController.guardarInscripcion}"/>
-                        </p:column>
-                    </p:row>
-                </p:panelGrid>
+                <h:form id="inscripcionForm">
+                    <h:inputHidden id="id" value="#{inscripcionController.inscripcion.id}"/>
+                    <p:panelGrid columns="6" layout="grid"
+                                 contentStyleClass="ui-fluid">
+                        <p:row>
+                            <p:column style="width: 20%; text-align: center">
+                                <p:outputLabel value="Buscar Alumno:"/>
+                            </p:column>
+                            <p:column style="width: 20%; text-align: center">
+                                <p:outputLabel value="Buscar Materia:"/>
+                            </p:column>
+                            <p:column style="text-align: right; width: 15%">
+                                <p:outputLabel value="Año:"/>
+                            </p:column>
+                            <p:column style="width: 15%">
+                                <p:inputText id="anio" value="#{inscripcionController.inscripcion.anio}"/>
+                            </p:column>
+                            <p:column style="text-align: right; width: 5%; margin-left: 5%">
+                                <p:outputLabel value="Ciclo:"/>
+                            </p:column>
+                            <p:column style="width: 15%; margin-right: 5%">
+                                <p:inputText id="ciclo" value="#{inscripcionController.inscripcion.ciclo}"/>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                    <p:panelGrid columns="6" layout="grid"
+                                 contentStyleClass="ui-fluid">
+                        <p:row>
+                            <p:column style="width: 20%; margin-top: -30px">
+                                <p:autoComplete id="ddA" value="#{inscripcionController.alumno1}"
+                                    completeMethod="#{inscripcionController.autoCompletarAlumno}"
+                                    var="alumno" itemLabel="#{alumno.nombre}" itemValue="#{alumno}"
+                                                                          converter="#{alumnoConverter}" forceSelection="true" scrollHeight="250"/>
+                            </p:column>
+                            <p:column style="width: 20%; margin-top: -30px">
+                                <p:autoComplete id="ddM" value="#{inscripcionController.materia1}"
+                                    completeMethod="#{inscripcionController.autoCompletarMateria}"
+                                    var="materia" itemLabel="#{materia.nombre}" itemValue="#{materia}"
+                                                                          converter="#{materiaConverter}" forceSelection="true" scrollHeight="250"/>
+                            </p:column>
+                            <p:column style="text-align: right; width: 30%; margin-left: 20%; margin-right: 10%">
+                                <p:commandButton value="Guardar" actionListener="#{inscripcionController.guardarInscripcion}"/>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                </h:form>
             </f:view>
         </p:card>
         <p:card style="margin: -3% 5% 5% 5%">
@@ -76,11 +82,11 @@
                     </p:column>
                     <p:column>
                         <f:facet name="header">Alumno</f:facet>
-                        <span>#{alumno.nombre}</span>
+                        <span>#{inscripcion.alumno.nombre}</span>
                     </p:column>
                     <p:column>
                         <f:facet name="header">Materia</f:facet>
-                        <span>#{materia.nombre}</span>
+                        <span>#{inscripcion.materia.nombre}</span>
                     </p:column>
                     <p:column>
                         <f:facet name="header">Año</f:facet>
@@ -92,7 +98,7 @@
                     </p:column>
                     <p:column>
                         <f:facet name="header">Fecha</f:facet>
-                        <span>#{inscripcion.fecha}</span>
+                        <span>#{inscripcion.fechaInscripcion}</span>
                     </p:column>
                 </p:dataTable>
                 <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
