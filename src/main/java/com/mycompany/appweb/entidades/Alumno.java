@@ -55,6 +55,14 @@ public class Alumno implements Serializable {
         this.carnet = carnet;
     }
 
+	public List<Inscripcion> getInscripciones() {
+		return inscripciones;
+	}
+
+	public void setInscripciones(List<Inscripcion> inscripciones) {
+		this.inscripciones = inscripciones;
+	}
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -99,4 +107,5 @@ public class Alumno implements Serializable {
         this.id = id;
         this.nombre = nombre;
     }
+
 }

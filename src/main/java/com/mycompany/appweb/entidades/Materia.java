@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,7 +24,10 @@ public class Materia {
     private String nombre;
 
     @Column(name = "codigomateria")
-    private String codigoMateria;
+    private String codigo;
+
+    @Column(name = "descripcion")
+    private String descripcion;
 
     @OneToMany(mappedBy = "materia")
     private List<Inscripcion> inscripciones;
@@ -34,10 +36,10 @@ public class Materia {
         this.id = id;
     }
 
-    public Materia(Integer id, String nombre, String codigoMateria) {
+    public Materia(Integer id, String nombre, String codigo, String descripcion) {
         this.id = id;
         this.nombre = nombre;
-        this.codigoMateria = codigoMateria;
+        this.codigo = codigo;
     }
 
     public Materia() {
@@ -64,17 +66,33 @@ public class Materia {
         this.nombre = nombre;
     }
 
-    public String getCodigoMateria() {
-        return codigoMateria;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setCodigoMateria(String codigoMateria) {
-        this.codigoMateria = codigoMateria;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public List<Inscripcion> getInscripciones() {
+        return inscripciones;
+    }
+
+    public void setInscripciones(List<Inscripcion> inscripciones) {
+        this.inscripciones = inscripciones;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, codigoMateria);
+        return Objects.hash(id, nombre, codigo, descripcion);
     }
 
     @Override
@@ -94,6 +112,7 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia{" + "id=" + id + ", nombre=" + nombre + ", codigoMateria=" + codigoMateria + '}';
+        return "Materia{" + "id=" + id + ", nombre=" + nombre + ", codigo=" + codigo + ", descripcion="
+                + descripcion + '}';
     }
 }

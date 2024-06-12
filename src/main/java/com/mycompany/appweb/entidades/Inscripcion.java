@@ -98,7 +98,7 @@ public class Inscripcion {
         this.ciclo = ciclo;
     }
 
-    public int getAnio() {
+    public Integer getAnio() {
         return anio;
     }
 
