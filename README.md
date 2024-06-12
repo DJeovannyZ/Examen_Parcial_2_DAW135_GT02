@@ -27,7 +27,7 @@ Para poder correr la aplicacion se necesitara crear un pull de conexion con los 
 - **UseSSL:** false
 
 ## Conexion por Docker
-Alternativamente se puede crear un contenedor de docker en el cual se tiene toda la configuracion necesaria para levantar el servidor de payar con la aplicacion incluyendo el pool de conexiones y el datasource para la conexion con la base de datos.
+Alternativamente se puede crear un contenedor de docker en el cual se tiene toda la configuracion necesaria para levantar el servidor de payara con la aplicacion incluyendo el pool de conexiones y el datasource para la conexion con la base de datos.
 
 Para Linux se puede ejecutar el script `startup.sh`:
 ```bash
