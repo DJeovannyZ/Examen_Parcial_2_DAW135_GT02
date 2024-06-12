@@ -27,11 +27,17 @@ Para poder correr la aplicacion se necesitara crear un pull de conexion con los 
 - **UseSSL:** false
 
 ## Conexion por Docker
-Alternativamente se puede crear un contenedor de docker en el cual se tiene toda la configuracion, solo se debera inicializar el archivo `startup.sh` para linux y para windows con esto podra acceder a la aplicacion.
+Alternativamente se puede crear un contenedor de docker en el cual se tiene toda la configuracion necesaria incluyendo el pool de conexiones y el datasource para la conexion con la base de datos.
 
+Para Linux se puede ejecutar el script `startup.sh`:
 ```bash
 chmod +x startup.sh; 
 ./startup.sh
+```
+
+Para Windows se puede ejecutar el script `startup.bat`:
+```bash
+./startup.bat
 ```
 
 
