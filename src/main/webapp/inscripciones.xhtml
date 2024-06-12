@@ -61,7 +61,7 @@
                                                                           converter="#{materiaConverter}" forceSelection="true" scrollHeight="250"/>
                             </p:column>
                             <p:column style="text-align: right; width: 30%; margin-left: 20%; margin-right: 10%">
-                                <p:commandButton value="Guardar" actionListener="#{inscripcionController.guardarInscripcion}"/>
+                                <p:commandButton value="Guardar" actionListener="#{inscripcionController.guardarInscripcion}" update="tablaInscripciones inscripcionForm"/>
                             </p:column>
                         </p:row>
                     </p:panelGrid>
