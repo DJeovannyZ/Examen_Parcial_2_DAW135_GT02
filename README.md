@@ -27,8 +27,11 @@ Para poder correr la aplicacion se necesitara crear un pull de conexion con los 
 - **UseSSL:** false
 
 ## Conexion por Docker
-Alternativamente se puede crear un contenedor de docker en el cual se tiene toda la configuracion, solo se debera inicializar el archivo `startup.sh`  y con esto podra acceder a la aplicacion.
+Alternativamente se puede crear un contenedor de docker en el cual se tiene toda la configuracion, solo se debera inicializar el archivo `startup.sh` para linux y para windows con esto podra acceder a la aplicacion.
 
-
+```bash
+chmod +x startup.sh; 
+./startup.sh
+```
 
 
