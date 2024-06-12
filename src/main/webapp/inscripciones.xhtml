@@ -11,12 +11,11 @@
         <f:facet name="title">Formulario de Inscripciones</f:facet>
         <p:card style="margin: 5%">
             <f:view>
-                <p:panelGrid columns="3" layout="grid"
-                             styleClass="customPanelGrid" contentStyleClass="ui-fluid">
-                    <p:commandButton value="Alumnos" actionListener="#{indexController.guardarAlumno}"/>
-                    <p:commandButton value="Materias" actionListener="#{indexController.guardarAlumno}"/>
-                    <p:commandButton value="Inscripciones" actionListener="#{indexController.guardarAlumno}"/>
-                </p:panelGrid>
+                    <p:panelGrid columns="3" layout="grid" styleClass="customPanelGrid" contentStyleClass="ui-fluid">
+                        <p:commandButton value="Alumnos" action="index.xhtml?faces-redirect=true" />
+                        <p:commandButton value="Materias" action="materias.xhtml?faces-redirect=true" />
+                        <p:commandButton value="Inscripciones" action="inscripciones.xhtml?faces-redirect=true" />
+                    </p:panelGrid>
             </f:view>
         </p:card>
         <p:card style="margin: -3% 5% 5% 5%">

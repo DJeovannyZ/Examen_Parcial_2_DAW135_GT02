@@ -11,12 +11,11 @@
         <f:facet name="title">Formulario de Alumno</f:facet>
         <p:card style="margin: 5%">
             <f:view>
-                <p:panelGrid columns="3" layout="grid"
-                             styleClass="customPanelGrid" contentStyleClass="ui-fluid">
-                    <p:commandButton value="Alumnos" actionListener="#{indexController.guardarAlumno}"/>
-                    <p:commandButton value="Materias" actionListener="#{Navegacion.paginaNavegar('materias')}"/>
-                    <p:commandButton value="Inscripciones" actionListener="#{indexController.guardarAlumno}"/>
-                </p:panelGrid>
+                    <p:panelGrid columns="3" layout="grid" styleClass="customPanelGrid" contentStyleClass="ui-fluid">
+                        <p:commandButton value="Alumnos" action="index.xhtml?faces-redirect=true" />
+                        <p:commandButton value="Materias" action="materias.xhtml?faces-redirect=true" />
+                        <p:commandButton value="Inscripciones" action="inscripciones.xhtml?faces-redirect=true" />
+                    </p:panelGrid>
             </f:view>
         </p:card>
         <p:card style="margin: -3% 5% 5% 5%">
@@ -30,7 +29,7 @@
                         <p:inputText id="carnet" value="#{alumnoController.alumno.carnet}"/>
                     </p:panelGrid>
                     <p:panelGrid columns="1" layout="grid">
-                        <p:commandButton style="margin-left: 35%; margin-right: 35%; width: 30%" value="Guardar" actionListener="#{indexController.guardarAlumno}" update="tablaAlumnos alumnoForm"/>
+                        <p:commandButton style="margin-left: 35%; margin-right: 35%; width: 30%" value="Guardar" actionListener="#{alumnoController.guardarAlumno}" update="tablaAlumnos alumnoForm"/>
                     </p:panelGrid>
                 </h:form>
             </f:view>
