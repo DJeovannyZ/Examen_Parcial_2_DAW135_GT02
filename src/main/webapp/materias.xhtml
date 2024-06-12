@@ -43,7 +43,7 @@
                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                              currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                              rowsPerPageTemplate="5,10,{ShowAll|'All'}"
-                             value="#{materiaController.materiasList}" var="alumno">
+                             value="#{materiaController.materiasList}" var="materia">
                     <p:column>
                         <f:facet name="header">ID</f:facet>
                         <span>#{materia.id}</span>
@@ -67,7 +67,7 @@
                         <p:commandButton value="Eliminar" icon="pi pi-trash" style="background-color: red" 
                                          action="#{materiaController.eliminarMateria(materia)}" update="tablaMaterias">
                             <p:confirm header="Confirmar" 
-                                       message="¿Realmente desea eliminar al alumno #{materia.nombre}?" icon="pi pi-info-circle"/>
+                                       message="¿Realmente desea eliminar la materia #{materia.nombre}?" icon="pi pi-info-circle"/>
                         </p:commandButton>
                     </p:column>
                 </p:dataTable>
