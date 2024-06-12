@@ -17,11 +17,11 @@ Este proyecto tiene como finalidad desarrollar un sistema de gestión de base de
 
 ## Datos del Servidor
 
-user: postgres
-password: PD0xT2FaXZvBGcS_yepXcA
-databaseName: parcial2
-serverName: parcial2-daw135-14983.7tt.aws-us-east-1.cockroachlabs.cloud
-portNumber: 26257
-UseSSL: false
+- user: postgres
+- password: PD0xT2FaXZvBGcS_yepXcA
+- databaseName: parcial2
+- serverName: parcial2-daw135-14983.7tt.aws-us-east-1.cockroachlabs.cloud
+- portNumber: 26257
+- UseSSL: false
 
 
