@@ -24,7 +24,7 @@ public class InscripcionController {
         inscripcionesList = servicio.getInscripciones();
     }
 
-    public List<Inscripcion> getAlumnosList() {
+    public List<Inscripcion> getInscripcionesList() {
         return inscripcionesList;
     }
 

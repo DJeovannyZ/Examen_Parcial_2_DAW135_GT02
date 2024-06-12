@@ -24,7 +24,7 @@ public class MateriaController {
         materiasList = servicio.getMaterias();
     }
 
-    public List<Materia> getAlumnosList() {
+    public List<Materia> getMateriasList() {
         return materiasList;
     }
 
@@ -42,7 +42,7 @@ public class MateriaController {
     public void llenarFormEditar(Materia materia) {
         this.materia.setId(materia.getId());
         this.materia.setNombre(materia.getNombre());
-        this.materia.setCodigoMateria(materia.getCodigoMateria());
+        this.materia.setCodigo(materia.getCodigo());
     }
     
     public void eliminarMateria(Materia materia) {
@@ -51,7 +51,7 @@ public class MateriaController {
     }
     
     //Getters and Setters
-    public void setMateriaList(List<Materia> materiasList) {
+    public void setMateriasList(List<Materia> materiasList) {
         this.materiasList = materiasList;
     }
 
